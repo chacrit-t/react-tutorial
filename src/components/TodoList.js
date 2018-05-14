@@ -8,16 +8,26 @@ class TodoList extends Component {
     }
   }
 
+  addItem = () => {
+    var items = this.state.items.slice();
+    items.push("item");
+    this.setState({
+      items
+    })
+  }
+
   render() {
     const { items } = this.state;
 
-    return (<ul>
+    return (<div>
+      <button onClick={this.addItem}>Add Item</button>
+      <ol>
       {
         items.map((item) =>
           <li>{item}</li>
         )
       }
-    </ul>)
+    </ol></div>)
   }
 }
 
